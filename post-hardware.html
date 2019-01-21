@@ -41,9 +41,6 @@
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
             </li>
-<!--             <li class="nav-item">
-              <a class="nav-link" href="post.html">Sample Post</a>
-            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
@@ -53,62 +50,42 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/home-splash.jpg')">
+    <header class="masthead" style="background-image: url('img/hardware-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Articul8 Blog</h1>
-              <span class="subheading">“It's not a faith in technology. It's faith in people.”</span>
+            <div class="post-heading">
+              <h1>The Articul8 Hardware System</h1>
+              <span class="meta">Posted by
+                <a href="#">Articul8</a>
+                on Jan 19, 2019</span>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
-            <a href="post-movement-correction.html">
-              <h2 class="post-title">
-                The Thing About Error Correction
-              </h2>
-              <h3 class="post-subtitle">
-                How movement errors can be defined, detected, and corrected using technology.
-              </h3>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Articul8</a>
-              on January 20, 2018</p>
-          </div>
-          <hr>
-          <div class="post-preview">
-            <a href="post-hardware.html">
-              <h2 class="post-title">
-                The Articul8 Hardware System
-              </h2>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Articul8</a>
-              on January 19, 2018</p>
-          </div>
-          <hr>
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>The foundation for every consumer electronics product is, well, the electronics involved. Advancements in technology along with economic globalization have made it feasible for smaller businesses and individuals to create hardware products that would otherwise be only possible for large corporations with enormous financial resources. At Articul8, we have designed and fabricated the hardware from the board-level up. There are unique challenges associated with developing a solution for improving performance during unsupervised rehabilitation. Therefore, as expected, there are unique design considerations that must be made when designing the hardware.</p>
+
+            <p>The initial PCB prototype shown in the photo is our first attempt at the board. The brain of the device is the Microchip ATMEGA328p microcontroller. This was used mainly for its popularity and encyclopedia worth of resources online, therefore, cutting down significantly on development time. The board also consists of the Invensense MPU-6050 IMU which is again a popular choice among the hardware community. This will be used for tracking joint angles and using that information to provide real-time feedback to the user. The RN4871 BLE module from Microchip is being used for inter-device communication. Lastly, the board consists of eight haptic drivers which will be used to control the haptic motors surrounding the wearable band.</p>
+
+            <p>Testing is currently ongoing and the design on the next iteration will begin soon. Some of the new features that will likely be incorporated in the new board design are USB debugging and battery charging, and a UART interface between multiple bands.</p>
           </div>
         </div>
       </div>
-    </div>
+    </article>
 
     <hr>
 
     <!-- Footer -->
     <footer>
-      <div class="container" style="display:none;">
+      <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
@@ -137,7 +114,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+            <!-- <p class="copyright text-muted">Copyright &copy; Your Website 2018</p> -->
           </div>
         </div>
       </div>
