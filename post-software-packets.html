@@ -81,7 +81,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
 			
-			<h2>Circular Buffers & Motivations</h2>
+			<h2>Circular Buffers and Motivations</h2>
 			<p>The lovely thing about programming at a low level is you have to make due with limited resources. When you are stretching an Arduino-like board to it’s limit, and concurrently managing several real time tasks, you really need to keep this in mind.</p>
 			<p>An instructive example of the limited resources found on embedded devices is found when looking at our wireless Bluetooth communication protocol. We send packets to and from our device over Bluetooth in order to relay information or to set the type of feedback the band is giving. What happens if you take too long to parse a packet that has been received over Bluetooth? Well the Bluetooth module internally has a memory buffer that either overflows or is flushed. So the first thing you need to do is check this buffer as frequently as possible. </p>
 			<p>In some cases though, this might just not be enough. And it may be okay to miss a few packets, so you may decide to allow the buffer to overflow every so often. But another problem arises when this overflow occurs: your packets are no longer aligned with your buffer. So now you need a way to find a packet in a buffer that is potentially full of garbage.</p>
@@ -98,7 +98,7 @@
 			<img class="center" src="img/code_samples/linbufwrite2.png"/>
 			<p>The more important and less trivial implementation detail is actually parsing packets in place within the circular buffer, which is what allows the circular buffer to solve the issue of packet/buffer misalignment. But I won’t bore you with the details! Better yet, let’s consider this an exercise left to the user.</p>
 			
-			<h2>Testing & Validation</h2>
+			<h2>Testing and Validation</h2>
 			<p>A humble circular buffer currently lies at the base of our communication stack, but is it really needed? As mentioned prior, if you choose to forego a circular buffer and instead read-then-parse directly from the Bluetooth module, then you are a likely to suffer from packet/buffer misalignment, whether it’s caused by buffer overflow, or some other mysterious Bluetooth quirk. </p>
 			<p>We witnessed this first hand; once we started playing around with the wireless comms, it became clear that any significant data rate would eventually result in comms going down. Debugging revealed that the device was still receiving data, but it wasn’t able to parse for a valid packet. </p>
 			<p>With the circular buffer implementation, we have managed stable communication throughout the entire development cycle, while loading the Arduino considerably both by frequently communicating with the IMU and other I2C devices, as well as putting it in data streaming modes where it generates and broadcasts data at roughly 50 Hz.</p>	

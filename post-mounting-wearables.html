@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Articul8</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img border="0" alt="Logo" src="img/WebsiteLogo.png" width="200" height="60">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/MotorImage2.png')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Mounting Rigid Objects onto Flexible Surfaces</h1>
+              <h2 class="subheading">The mechanical design considerations for our wearable device.</h2>
+              <span class="meta">Posted by
+                <a href="#">Articul8</a>
+                on February 20, 2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-heading">Overall Design Considerations</h2>
+
+            <p>Some of the most important characteristics for wearables to encourage adoption include ease of use and the ability for the user to "wear and forget" the device. Tackling those two requirements from a mechanical standpoint means having a light-weight design that is intuitive to use and easy to put on. </p>
+
+            <p>We met these requirements by designing an easy to open clasp that allows users to remove the device without sliding it off their limbs. Additionally we use elastic fabric straps in between the vibrating modules to accommodate different sizes while maintaining equal spacing between the haptic sensations. </p>
+
+            <h2 class="section-heading">Motor Selection</h2>
+
+            <p>Haptic feedback cues can come in a variety of forms, the most popular being ERM (eccentric rotating mass) and LRA (linear resonance actuator), these two types of vibrating actuators both have their benefits and trade-offs. While ERMs were historically the popular option, the rise of smartphones has lead to low cost LRAs. ERMs rely on an eccentric mass attached to a motor shaft, as the motor speeds up the eccentric mass generates vibrations in the radial direction. This technology is commonly found in older smartphones and game controllers. LRA actuators rely on a voice coil and resonating mass that produce vibrations normal to surface they are mounted on.</p>
+
+            <img border="0" alt="Board Schematic" src="img/MotorImage.png" class="img-fluid" > <!-- width="200" height="60"> -->
+
+            <p>We chose LRAs due to their lower power consumption, faster response time and compact size. ERM solutions would be easier to implement but don't provide the level of control we required for this project.</p>
+
+            <h2 class="section-heading">Ergonomics and Comfort</h2>
+
+            <p>Ergonomics and comfort are crucial requirements when designing a wearable device, even small weighs become noticeable and will cause fatigue if you need to exert yourself to support them. A wearable product can also become uncomfortable over time if the contact surface is irritating on your skin or if there are sharp edges that cause pinch points. Minimizing the device weight and adding foam pads were two ways we improved the comfort of the device. </p>
+
+            <h2 class="section-heading">Mounting Considerations</h2>
+
+            <p>While deciding on mounting we prototyped a variety of solutions including low-tack adhesives and Velcro. The vibrations induced during use and the varying amount of stress and elongation that the parts experienced made these solutions a risk. The final iteration opted to use carabineer clips that attach to flexible hemmed loops in series to form a chain. This solution provides us with the modularity and flexibility that a low-tack adhesive or Velcro would offer but with more rigidity and reliability. </p>
+
+            <h2 class="section-heading">Summary</h2>
+
+            <p>In summary, Articul8 has employed a series of features to improve the feel, look and user experience of its device. Further mechanical improvements include improving the wire harness to hide cables and prevent damage to the interconnects and reducing the overall size of each daughterboard enclosure.</p>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer >
+      <p class="copyright text-muted">Copyright &copy; Articul8 Labs 2019</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
