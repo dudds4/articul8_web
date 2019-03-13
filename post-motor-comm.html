@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Articul8</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img border="0" alt="Logo" src="img/WebsiteLogo.png" width="200" height="60">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/hardware-v2-bg.JPG')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Motor Communication In Depth</h1>
+              <h2 class="subheading">Detailed explanation of our solution to motor communication conflicts.</h2>
+              <span class="meta">Posted by
+                <a href="#">Articul8</a>
+                on February 15, 2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-heading">What's new?</h2>
+
+            <p>A lot has changed in terms of design between the initial and current prototypes. The biggest change being the modularization of the wearable bands. Haptic motors and the necessary drive circuitry have been removed from the main board and given their own daughterboards. This way, we were able to shrink the form factor for the motherboard down to approximately 25 x 50 mm. </p>
+
+            <p>Each band in the updated design consists of 1 motherboard which handles the bulk of the on-board processing, and up to 8 daughterboards each with a haptic motor. These boards are spaced evenly around the band to help provide directional haptic feedback. The biggest advantage of this approach is that the number of wires connecting each board has been reduced to a constant 4 (power, ground and the I2C bus). In the original design, each motor in the band required an additional 2 wires, therefore, there can be up to 18 wires in an 8-motor band. </p>
+
+            <h2 class="section-heading">Challenges of the New Approach</h2>
+
+            <p>However, this design change did not come with significant challenges. The biggest challenge was that the haptic drivers used (DRV2604L) only have 1 slave address. This was handled using multiplexers in the previous design. However, in the updated design, maintaining modularity and the 4-wire interconnects required that a new design solution. The solution needs to provide the capability to adjust the I2C addresses for each of the daughterboards on the fly. The following schematic design was developed to help achieve this. </p>
+
+            <img border="0" alt="Board Schematic" src="img/BoardSchematic.png"> <!-- width="200" height="60"> -->
+
+            <h2 class="section-heading">Using Switches to control I2C addressing</h2>
+
+            <p>The design makes use of a 3-bit adjustable switch that provides the developer with the ability to communicate with up to 8 different haptic modules by simply masking the upper 3 most significant bits of the I2C slave address. This is done in conjunction with the LTC4316 I2C address translator and SN74L 3:8 analog multiplexer. The 3 inputs of the switch are connected directly to the SN74L mux which then selects 1 of the 8 output channels accordingly. </p>
+
+            <p>These output channels are connected to resistors that have been carefully selected based on the datasheet of the LTC4316 address translator. The resistors form a voltage divider that is fed into the translator. The built-in ADC then measures the potential and masks the I2C address accordingly. Simply, the translator has an input and output I2C bus and addresses read on the SDA line are masked based on the inputs of the 3-bit switch. </p>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer >
+      <p class="copyright text-muted">Copyright &copy; Articul8 Labs 2019</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
